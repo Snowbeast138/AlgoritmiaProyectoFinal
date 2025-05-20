@@ -1,6 +1,6 @@
 {
   "direcciones": {
-    "puerto agiabampo 164": {
+    "puerto agiabampo 163": {
       "direccion": "Calle Puerto Agiabampo, Independencia Oriente, Guadalajara, Región Centro, Jalisco, 44320, México",
       "coordenadas": {
         "lat": 20.6956632,
@@ -21,6 +21,74 @@
       "osm_id": 184075389,
       "tipo": "residential",
       "categoria": "highway"
+    },
+    "prolongacion boyero 3372": {
+      "direccion": "Prolongación Boyero, Rinconada La Joya, Zapopan, Región Centro, Jalisco, 45080, México",
+      "coordenadas": {
+        "lat": 20.6340731,
+        "lon": -103.4099461
+      },
+      "componentes": {
+        "road": "Prolongación Boyero",
+        "neighbourhood": "Rinconada La Joya",
+        "city": "Zapopan",
+        "county": "Zapopan",
+        "state_district": "Región Centro",
+        "state": "Jalisco",
+        "ISO3166-2-lvl4": "MX-JAL",
+        "postcode": "45080",
+        "country": "México",
+        "country_code": "mx"
+      },
+      "osm_id": 121969777,
+      "tipo": "residential",
+      "categoria": "highway"
+    },
+    "centro magno": {
+      "direccion": "Centro Magno, Calle Lope de Vega, Arcos Vallarta, Guadalajara, Región Centro, Jalisco, 44130, México",
+      "coordenadas": {
+        "lat": 20.6738411,
+        "lon": -103.3806487
+      },
+      "componentes": {
+        "shop": "Centro Magno",
+        "road": "Calle Lope de Vega",
+        "quarter": "Arcos Vallarta",
+        "city": "Guadalajara",
+        "county": "Guadalajara",
+        "state_district": "Región Centro",
+        "state": "Jalisco",
+        "ISO3166-2-lvl4": "MX-JAL",
+        "postcode": "44130",
+        "country": "México",
+        "country_code": "mx"
+      },
+      "osm_id": 317256456,
+      "tipo": "mall",
+      "categoria": "shop"
+    },
+    "acuario michin": {
+      "direccion": "Acuario Michin, Calle Mariano de la Bárcena, La Normal, Guadalajara, Región Centro, Jalisco, 44260, México",
+      "coordenadas": {
+        "lat": 20.6924182,
+        "lon": -103.3510973
+      },
+      "componentes": {
+        "tourism": "Acuario Michin",
+        "road": "Calle Mariano de la Bárcena",
+        "neighbourhood": "La Normal",
+        "city": "Guadalajara",
+        "county": "Guadalajara",
+        "state_district": "Región Centro",
+        "state": "Jalisco",
+        "ISO3166-2-lvl4": "MX-JAL",
+        "postcode": "44260",
+        "country": "México",
+        "country_code": "mx"
+      },
+      "osm_id": 485610865,
+      "tipo": "zoo",
+      "categoria": "tourism"
     }
   },
   "grafo_edges": []
