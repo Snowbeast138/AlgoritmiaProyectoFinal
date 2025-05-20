@@ -2,6 +2,10 @@ import json
 import networkx as nx
 from math import radians, sin, cos, sqrt, atan2
 from typing import Dict, Optional, List
+import requests
+import polyline
+from datetime import datetime
+
 
 from ..api.nominatim import NominatimAPI
 
@@ -165,3 +169,54 @@ class GestorDirecciones:
             'distancias': distancias_pasos,
             'distancia_total': distancia_total
         }
+    
+    def obtener_ruta_transporte_publico(self, origen, destino):
+            """
+            Obtiene la ruta óptima de transporte público entre dos direcciones
+            Devuelve una lista de instrucciones y geometría de la ruta
+            """
+            if origen not in self.direcciones or destino not in self.direcciones:
+                raise ValueError("Una o ambas direcciones no existen")
+                
+            coords_origen = self.direcciones[origen]['coordenadas']
+            coords_destino = self.direcciones[destino]['coordenadas']
+            
+            # Configuración para OTP (OpenTripPlanner)
+            otp_url = "http://router.project-osrm.org/route/v1/driving/"
+            
+            try:
+                # Obtener la ruta de OTP
+                response = requests.get(
+                    f"{otp_url}{coords_origen['lon']},{coords_origen['lat']};{coords_destino['lon']},{coords_destino['lat']}?overview=full&geometries=polyline"
+                )
+                
+                if response.status_code == 200:
+                    data = response.json()
+                    return self._procesar_ruta_otp(data)
+                else:
+                    return {"error": "No se pudo obtener la ruta"}
+                    
+            except Exception as e:
+                return {"error": str(e)}
+        
+    def _procesar_ruta_otp(self, data):
+            """Procesa la respuesta de OTP para extraer instrucciones"""
+            route = data['routes'][0]
+            decoded_path = polyline.decode(route['geometry'])
+            
+            instrucciones = []
+            for leg in route['legs']:
+                for step in leg['steps']:
+                    instrucciones.append({
+                        'instruccion': step['name'],
+                        'distancia': step['distance'],
+                        'duracion': step['duration'],
+                        'tipo': step['mode']
+                    })
+            
+            return {
+                'duracion_total': route['duration'],
+                'distancia_total': route['distance'],
+                'instrucciones': instrucciones,
+                'geometria': decoded_path
+            }
