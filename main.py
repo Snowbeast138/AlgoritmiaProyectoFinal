@@ -1,6 +1,11 @@
+import sys
+from pathlib import Path
+
+# Asegura que Python encuentre el paquete
+sys.path.insert(0, str(Path(__file__).parent))
+
 from gestor_direcciones.ui.main_window import MainWindow
 from PyQt5.QtWidgets import QApplication
-import sys
 
 def main():
     app = QApplication(sys.argv)

@@ -1,0 +1,27 @@
+{
+  "direcciones": {
+    "puerto agiabampo 164": {
+      "direccion": "Calle Puerto Agiabampo, Independencia Oriente, Guadalajara, Región Centro, Jalisco, 44320, México",
+      "coordenadas": {
+        "lat": 20.6956632,
+        "lon": -103.3228884
+      },
+      "componentes": {
+        "road": "Calle Puerto Agiabampo",
+        "neighbourhood": "Independencia Oriente",
+        "city": "Guadalajara",
+        "county": "Guadalajara",
+        "state_district": "Región Centro",
+        "state": "Jalisco",
+        "ISO3166-2-lvl4": "MX-JAL",
+        "postcode": "44320",
+        "country": "México",
+        "country_code": "mx"
+      },
+      "osm_id": 184075389,
+      "tipo": "residential",
+      "categoria": "highway"
+    }
+  },
+  "grafo_edges": []
+}
