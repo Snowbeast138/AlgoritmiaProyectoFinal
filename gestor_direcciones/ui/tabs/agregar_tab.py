@@ -84,9 +84,15 @@ class AgregarTab(QWidget):
             return
         
         try:
-            self.parent.gestor.agregar_direccion(self.txt_direccion.text())
+            # Guardar la dirección en el gestor
+            self.parent.gestor.direcciones[self.direccion_actual['direccion']] = self.direccion_actual
             self.parent.actualizar_listas_direcciones()
             QMessageBox.information(self, "Éxito", "Dirección agregada correctamente")
+            
+            # Limpiar para nueva entrada
+            self.txt_direccion.clear()
+            self.txt_resultado.clear()
+            self.direccion_actual = None
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Error al agregar dirección: {str(e)}")
 
